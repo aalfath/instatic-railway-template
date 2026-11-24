@@ -14,7 +14,8 @@ ENV NODE_ENV=production \
     MALLOC_ARENA_MAX=2
 
 COPY --chmod=755 start.sh /usr/local/bin/instatic-railway-start
-COPY --chmod=644 bootstrap.ts /opt/instatic-railway/bootstrap.ts
+COPY bootstrap.ts /opt/instatic-railway/bootstrap.ts
+RUN chmod 755 /opt/instatic-railway && chmod 644 /opt/instatic-railway/bootstrap.ts
 
 WORKDIR /app
 ENTRYPOINT ["/usr/local/bin/instatic-railway-start"]
